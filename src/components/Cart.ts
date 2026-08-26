@@ -1,4 +1,4 @@
-import type { CartItem } from "../types/CartItem";
+import type { CartItem } from "../types/CartItem"; //interface do carrinho
 
 export function Cart(items: CartItem[]): string {
   const total = items.reduce(

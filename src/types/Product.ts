@@ -1,4 +1,4 @@
-//estrutura do produto (informações do produto)
+//estrutura do produto (informações do produto) define como o produto deve ser 
 export type Product = {
   id: number;
   name: string;

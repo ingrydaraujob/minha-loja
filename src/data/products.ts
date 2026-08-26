@@ -1,4 +1,4 @@
-//array de Product (a lista de objeto )
+//array de Product (a lista de objeto )/ guarda quais produtos existem 
 import type { Product } from "../types/Product";
 
 export const products: Product[] = [
