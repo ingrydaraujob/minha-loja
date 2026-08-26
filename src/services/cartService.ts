@@ -9,9 +9,13 @@ export function addToCart(product: CartItem["product"]): void {
   );
 
   if (existingItem) {
-    existingItem.quantity += 1;
+  if (existingItem.quantity >= product.stock) {
     return;
   }
+
+  existingItem.quantity += 1;
+  return;
+}
 
   cart.push({
     product,
@@ -19,13 +23,39 @@ export function addToCart(product: CartItem["product"]): void {
   });
 }
 
-
+//getcart consutar o carrinho 
 export function getCart(): CartItem[] {
   return cart;
 }
 
+//função remove produto especifico filtrando o id
 export function removeFromCart(productId: number): void {
   cart = cart.filter(
     (item) => item.product.id !== productId
   );
+}
+
+//altera a quantidade de um produto no carrinho, se a quantidade for 0 remove o produto do carrinho
+export function updateQuantity(
+  productId: number,
+  quantity: number
+): void {
+  const item = cart.find(
+    (item) => item.product.id === productId
+  );
+
+  if (!item) {
+    return;
+  }
+
+  if (quantity <= 0) {
+    removeFromCart(productId);
+    return;
+  }
+
+  if (quantity > item.product.stock) {
+    return;
+  }
+
+  item.quantity = quantity;
 }
