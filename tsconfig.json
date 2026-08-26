@@ -1,3 +1,4 @@
+//config typescript
 {
   "compilerOptions": {
     "target": "es2023",

@@ -1,4 +1,4 @@
-//estrutura do produto 
+//estrutura do produto (informações do produto)
 export type Product = {
   id: number;
   name: string;
