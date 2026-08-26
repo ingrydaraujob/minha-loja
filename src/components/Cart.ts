@@ -1,4 +1,6 @@
-import type { CartItem } from "../types/CartItem"; //interface do carrinho
+// Interface do carrinho
+
+import type { CartItem } from "../types/CartItem";
 
 export function Cart(items: CartItem[]): string {
   const total = items.reduce(
@@ -26,7 +28,6 @@ export function Cart(items: CartItem[]): string {
       </div>
 
       <div class="flex h-[calc(100%-140px)] flex-col overflow-y-auto p-5">
-
         ${
           items.length === 0
             ? `
@@ -38,7 +39,6 @@ export function Cart(items: CartItem[]): string {
                 .map(
                   (item) => `
                     <div class="flex items-center justify-between border-b py-4">
-
                       <div>
                         <h3 class="font-semibold text-gray-900">
                           ${item.product.name}
@@ -57,17 +57,14 @@ export function Cart(items: CartItem[]): string {
                           .toFixed(2)
                           .replace(".", ",")}
                       </strong>
-
                     </div>
                   `
                 )
                 .join("")
         }
-
       </div>
 
       <div class="absolute bottom-0 left-0 right-0 border-t bg-white p-5">
-
         <div class="flex items-center justify-between">
           <span class="font-semibold text-gray-700">
             Total
@@ -77,7 +74,6 @@ export function Cart(items: CartItem[]): string {
             R$ ${total.toFixed(2).replace(".", ",")}
           </strong>
         </div>
-
       </div>
     </aside>
   `;

@@ -59,3 +59,11 @@ export function updateQuantity(
 
   item.quantity = quantity;
 }
+
+//funçao soma
+export function getCartTotal(): number {
+  return cart.reduce(
+    (total, item) => total + item.product.price * item.quantity,
+    0
+  );
+}
