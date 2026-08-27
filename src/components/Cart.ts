@@ -117,6 +117,15 @@ export function Cart(
           </strong>
         </div>
 
+        <button
+  id="checkout-button"
+  type="button"
+  ${items.length === 0 ? "disabled" : ""}
+  class="mt-5 w-full rounded-lg bg-green-700 px-5 py-3 font-semibold text-white transition hover:bg-green-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+>
+  Finalizar compra
+</button>
+
       </div>
     </aside>
   `;

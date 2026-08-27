@@ -1,41 +1,72 @@
 //regras do carrinho (add, remover, alterar quant, limpar)(funcionameto do carrinho)
 import type { CartItem } from "../types/CartItem";
 
-let cart: CartItem[] = [];
+const CART_STORAGE_KEY = "verdeza-cart";
 
-export function addToCart(product: CartItem["product"]): void {
+function loadCart(): CartItem[] {
+  const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+
+  if (!storedCart) {
+    return [];
+  }
+
+  try {
+    return JSON.parse(storedCart) as CartItem[];
+  } catch {
+    return [];
+  }
+}
+
+let cart: CartItem[] = loadCart();
+
+function saveCart(): void {
+  localStorage.setItem(
+    CART_STORAGE_KEY,
+    JSON.stringify(cart)
+  );
+}
+
+export function addToCart(
+  product: CartItem["product"]
+): void {
   const existingItem = cart.find(
     (item) => item.product.id === product.id
   );
 
   if (existingItem) {
-  if (existingItem.quantity >= product.stock) {
+    if (existingItem.quantity >= product.stock) {
+      return;
+    }
+
+    existingItem.quantity += 1;
+
+    saveCart();
+
     return;
   }
-
-  existingItem.quantity += 1;
-  return;
-}
 
   cart.push({
     product,
     quantity: 1,
   });
+
+  saveCart();
 }
 
-//getcart consutar o carrinho 
 export function getCart(): CartItem[] {
   return cart;
 }
 
-//função remove produto especifico filtrando o id
-export function removeFromCart(productId: number): void {
+export function removeFromCart(
+  productId: number
+): void {
   cart = cart.filter(
     (item) => item.product.id !== productId
   );
+
+  saveCart();
 }
 
-//altera a quantidade de um produto no carrinho, se a quantidade for 0 remove o produto do carrinho
 export function updateQuantity(
   productId: number,
   quantity: number
@@ -58,12 +89,22 @@ export function updateQuantity(
   }
 
   item.quantity = quantity;
+
+  saveCart();
 }
 
-//funçao soma
 export function getCartTotal(): number {
   return cart.reduce(
-    (total, item) => total + item.product.price * item.quantity,
+    (total, item) =>
+      total + item.product.price * item.quantity,
+    0
+  );
+}
+
+//sona qunt itens
+export function getCartItemCount(): number {
+  return cart.reduce(
+    (total, item) => total + item.quantity,
     0
   );
 }
