@@ -44,6 +44,15 @@ export function Header(): string {
             </li>
 
             <li>
+  <a
+    href="/como-fiz"
+    class="text-sm font-medium text-gray-700 transition hover:text-green-700"
+  >
+    Como fiz
+  </a>
+</li>
+
+            <li>
               <a
                 href="#sobre"
                 class="text-sm font-medium text-gray-700 transition hover:text-green-700"

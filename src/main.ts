@@ -5,6 +5,7 @@ import { ProductCard } from "./components/ProductCard";
 import { Cart } from "./components/Cart";
 import { ProductFilters } from "./components/ProductFilters";
 import { Checkout } from "./components/Checkout";
+import { HowIMade } from "./components/HowIMade";
 
 import type { Product } from "./types/Product";
 import type { PaymentMethod } from "./services/paymentService";
@@ -883,14 +884,153 @@ function renderPaymentSuccess(
 );
 }
 
+function renderHowIMadePage(): void {
+  app.innerHTML = `
+    <header
+      class="border-b border-green-100 bg-white"
+    >
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"
+      >
+        <a
+          href="/"
+          class="flex items-center gap-2"
+        >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-xl"
+          >
+            🌿
+          </span>
+
+          <div>
+            <span
+              class="block text-xl font-bold text-green-900"
+            >
+              VERDEZA
+            </span>
+
+            <span
+              class="block text-xs text-green-600"
+            >
+              plantas para viver melhor
+            </span>
+          </div>
+        </a>
+
+        <a
+          href="/"
+          class="rounded-full border border-green-200 px-5 py-2.5 text-sm font-semibold text-green-800 transition hover:bg-green-50"
+        >
+          ← Voltar para a loja
+        </a>
+      </div>
+    </header>
+
+    <main>
+
+      <section
+        class="bg-green-950 px-6 py-20 text-white"
+      >
+        <div
+          class="mx-auto max-w-4xl text-center"
+        >
+          <span
+            class="text-sm font-semibold uppercase tracking-widest text-green-300"
+          >
+            Bootcamp · Minha Loja no Ar
+          </span>
+
+          <h1
+            class="mt-4 text-4xl font-bold md:text-5xl"
+          >
+            Como eu construí a VERDEZA
+          </h1>
+
+          <p
+            class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-green-100"
+          >
+            Uma visão sobre as tecnologias, decisões e aprendizados
+            por trás do desenvolvimento da loja.
+          </p>
+        </div>
+      </section>
+
+      ${HowIMade()}
+
+      <section
+        class="bg-white px-6 py-20"
+      >
+        <div
+          class="mx-auto max-w-4xl"
+        >
+          <div class="text-center">
+            <span
+              class="text-sm font-semibold uppercase tracking-widest text-green-600"
+            >
+              Apresentação
+            </span>
+
+            <h2
+              class="mt-3 text-3xl font-bold text-green-950"
+            >
+              Vídeo do projeto
+            </h2>
+
+            <p
+              class="mx-auto mt-4 max-w-2xl text-gray-600"
+            >
+              Aqui será inserido o vídeo de apresentação da VERDEZA,
+              mostrando a loja publicada e explicando as principais
+              decisões técnicas do projeto.
+            </p>
+          </div>
+
+          <div
+            class="mt-10 flex aspect-video items-center justify-center rounded-3xl border border-green-100 bg-green-50"
+          >
+            <div class="text-center">
+              <div class="text-5xl">
+                ▶
+              </div>
+
+              <p
+                class="mt-4 font-semibold text-green-900"
+              >
+                Vídeo em breve
+              </p>
+
+              <p
+                class="mt-2 text-sm text-gray-500"
+              >
+                O vídeo será incorporado aqui antes da entrega.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer
+      class="bg-green-950 px-6 py-8 text-center text-sm text-green-200"
+    >
+      VERDEZA · Projeto demonstrativo desenvolvido para o Bootcamp
+    </footer>
+  `;
+}
+
 async function init(): Promise<void> {
   try {
-    products =
-      await getProducts();
+    if (window.location.pathname === "/como-fiz") {
+      renderHowIMadePage();
+      return;
+    }
+
+    products = await getProducts();
 
     renderApp();
   } catch (error) {
-    console.error(error);
 
     app.innerHTML = `
       <main
