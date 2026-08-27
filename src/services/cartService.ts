@@ -108,3 +108,10 @@ export function getCartItemCount(): number {
     0
   );
 }
+
+//limpa o estado da memoria 
+export function clearCart(): void {
+  cart = [];
+
+  localStorage.removeItem(CART_STORAGE_KEY);
+}

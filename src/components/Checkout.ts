@@ -7,18 +7,26 @@ export function Checkout(
   const orderItems = items
     .map(
       (item) => `
-        <div class="flex justify-between border-b border-gray-100 py-3">
-          <div>
-            <p class="font-medium text-gray-900">
+        <div
+          class="flex items-center gap-4 border-b border-green-100 py-4"
+        >
+          <img
+            src="${item.product.image}"
+            alt="${item.product.name}"
+            class="h-16 w-16 rounded-2xl object-cover"
+          />
+
+          <div class="min-w-0 flex-1">
+            <p class="font-bold text-gray-900">
               ${item.product.name}
             </p>
 
-            <p class="text-sm text-gray-500">
+            <p class="mt-1 text-sm text-gray-500">
               ${item.quantity} unidade(s)
             </p>
           </div>
 
-          <strong class="text-gray-900">
+          <strong class="whitespace-nowrap text-green-900">
             R$ ${(item.product.price * item.quantity)
               .toFixed(2)
               .replace(".", ",")}
@@ -31,17 +39,25 @@ export function Checkout(
   return `
     <div
       id="checkout-overlay"
-      class="fixed inset-0 z-60 overflow-y-auto bg-black/50 px-4 py-10"
+      class="fixed inset-0 z-60 overflow-y-auto bg-green-950/60 px-4 py-8 backdrop-blur-sm"
     >
-      <div class="mx-auto max-w-3xl rounded-2xl bg-white shadow-2xl">
+      <div
+        class="mx-auto max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+      >
 
-        <div class="flex items-center justify-between border-b p-6">
+        <div
+          class="flex items-center justify-between border-b border-green-100 px-6 py-5"
+        >
           <div>
-            <p class="text-sm font-semibold uppercase tracking-widest text-green-600">
+            <p
+              class="text-xs font-semibold uppercase tracking-widest text-green-600"
+            >
               VERDEZA
             </p>
 
-            <h2 class="mt-1 text-2xl font-bold text-gray-900">
+            <h2
+              class="mt-1 text-2xl font-bold text-green-950"
+            >
               Finalizar compra
             </h2>
           </div>
@@ -49,24 +65,37 @@ export function Checkout(
           <button
             id="close-checkout"
             type="button"
-            class="text-xl text-gray-500 transition hover:text-gray-900"
+            aria-label="Fechar checkout"
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-green-50 text-lg text-green-800 transition hover:bg-green-100"
           >
             ✕
           </button>
         </div>
 
-        <div class="grid gap-8 p-6 md:grid-cols-2">
+        <div
+          class="grid gap-8 p-6 lg:grid-cols-[1.1fr_0.9fr]"
+        >
 
           <form id="checkout-form">
 
-            <h3 class="text-lg font-bold text-gray-900">
-              Seus dados
-            </h3>
+            <div>
+              <span
+                class="inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700"
+              >
+                1. Seus dados
+              </span>
 
-            <div class="mt-5">
+              <h3
+                class="mt-3 text-xl font-bold text-gray-900"
+              >
+                Informações do cliente
+              </h3>
+            </div>
+
+            <div class="mt-6">
               <label
                 for="customer-name"
-                class="mb-2 block text-sm font-medium text-gray-700"
+                class="mb-2 block text-sm font-semibold text-gray-700"
               >
                 Nome completo
               </label>
@@ -76,14 +105,15 @@ export function Checkout(
                 name="name"
                 type="text"
                 required
-                class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600"
+                placeholder="Digite seu nome"
+                class="w-full rounded-2xl border border-green-100 bg-white px-4 py-3 outline-none transition placeholder:text-gray-400 focus:border-green-500 focus:ring-4 focus:ring-green-100"
               />
             </div>
 
             <div class="mt-4">
               <label
                 for="customer-email"
-                class="mb-2 block text-sm font-medium text-gray-700"
+                class="mb-2 block text-sm font-semibold text-gray-700"
               >
                 E-mail
               </label>
@@ -93,53 +123,86 @@ export function Checkout(
                 name="email"
                 type="email"
                 required
-                class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600"
+                placeholder="voce@email.com"
+                class="w-full rounded-2xl border border-green-100 bg-white px-4 py-3 outline-none transition placeholder:text-gray-400 focus:border-green-500 focus:ring-4 focus:ring-green-100"
               />
             </div>
 
-            <div class="mt-6">
-              <p class="mb-3 text-sm font-medium text-gray-700">
-                Forma de pagamento
-              </p>
+            <div class="mt-8">
+              <span
+                class="inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700"
+              >
+                2. Pagamento
+              </span>
 
-              <label class="flex cursor-pointer items-center gap-3 rounded-lg border p-4">
+              <h3
+                class="mt-3 text-xl font-bold text-gray-900"
+              >
+                Escolha a forma de pagamento
+              </h3>
+            </div>
+
+            <div class="mt-5 space-y-3">
+
+              <label
+                class="flex cursor-pointer items-center gap-3 rounded-2xl border border-green-100 p-4 transition hover:bg-green-50"
+              >
                 <input
                   type="radio"
                   name="payment-method"
                   value="pix"
                   checked
+                  class="accent-green-700"
                 />
 
-                <span>
-                  PIX
-                </span>
+                <div>
+                  <span class="font-semibold text-gray-900">
+                    PIX
+                  </span>
+
+                  <p class="mt-1 text-sm text-gray-500">
+                    Pagamento instantâneo demonstrativo.
+                  </p>
+                </div>
               </label>
 
-              <label class="mt-3 flex cursor-pointer items-center gap-3 rounded-lg border p-4">
+              <label
+                class="flex cursor-pointer items-center gap-3 rounded-2xl border border-green-100 p-4 transition hover:bg-green-50"
+              >
                 <input
                   type="radio"
                   name="payment-method"
                   value="card"
+                  class="accent-green-700"
                 />
 
-                <span>
-                  Cartão — demonstração
-                </span>
+                <div>
+                  <span class="font-semibold text-gray-900">
+                    Cartão
+                  </span>
+
+                  <p class="mt-1 text-sm text-gray-500">
+                    Fluxo fictício para demonstração do checkout.
+                  </p>
+                </div>
               </label>
+
             </div>
 
             <div
               id="card-fields"
-              class="mt-5 hidden rounded-xl border border-gray-200 bg-gray-50 p-4"
+              class="mt-5 hidden rounded-3xl border border-green-100 bg-green-50/60 p-5"
             >
-              <p class="mb-4 text-sm font-semibold text-gray-800">
+              <p
+                class="mb-4 font-bold text-gray-900"
+              >
                 Dados do cartão
               </p>
 
               <div>
                 <label
                   for="card-number"
-                  class="mb-2 block text-sm font-medium text-gray-700"
+                  class="mb-2 block text-sm font-semibold text-gray-700"
                 >
                   Número do cartão
                 </label>
@@ -152,14 +215,14 @@ export function Checkout(
                   maxlength="19"
                   placeholder="0000 0000 0000 0000"
                   autocomplete="off"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600"
+                  class="w-full rounded-2xl border border-green-100 bg-white px-4 py-3 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
                 />
               </div>
 
               <div class="mt-4">
                 <label
                   for="card-name"
-                  class="mb-2 block text-sm font-medium text-gray-700"
+                  class="mb-2 block text-sm font-semibold text-gray-700"
                 >
                   Nome impresso no cartão
                 </label>
@@ -170,7 +233,7 @@ export function Checkout(
                   type="text"
                   placeholder="NOME SOBRENOME"
                   autocomplete="off"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600"
+                  class="w-full rounded-2xl border border-green-100 bg-white px-4 py-3 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
                 />
               </div>
 
@@ -179,7 +242,7 @@ export function Checkout(
                 <div>
                   <label
                     for="card-expiry"
-                    class="mb-2 block text-sm font-medium text-gray-700"
+                    class="mb-2 block text-sm font-semibold text-gray-700"
                   >
                     Validade
                   </label>
@@ -192,14 +255,14 @@ export function Checkout(
                     maxlength="5"
                     placeholder="MM/AA"
                     autocomplete="off"
-                    class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600"
+                    class="w-full rounded-2xl border border-green-100 bg-white px-4 py-3 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
                   />
                 </div>
 
                 <div>
                   <label
                     for="card-cvv"
-                    class="mb-2 block text-sm font-medium text-gray-700"
+                    class="mb-2 block text-sm font-semibold text-gray-700"
                   >
                     CVV
                   </label>
@@ -212,52 +275,64 @@ export function Checkout(
                     maxlength="3"
                     placeholder="123"
                     autocomplete="off"
-                    class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600"
+                    class="w-full rounded-2xl border border-green-100 bg-white px-4 py-3 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
                   />
                 </div>
 
               </div>
             </div>
 
-            <p class="mt-4 text-xs leading-5 text-gray-500">
-              Checkout demonstrativo. Não utilize dados reais de cartão.
-            </p>
+            
 
             <button
               type="submit"
-              class="mt-6 w-full rounded-lg bg-green-700 px-5 py-3 font-semibold text-white transition hover:bg-green-800"
+              class="mt-6 w-full rounded-full bg-green-800 px-5 py-3.5 font-semibold text-white shadow-sm transition hover:bg-green-900"
             >
               Confirmar pagamento
             </button>
 
           </form>
 
-          <aside class="rounded-xl bg-green-50 p-5">
+          <aside
+            class="h-fit rounded-3xl bg-green-50 p-6"
+          >
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-green-600"
+            >
+              Resumo
+            </span>
 
-            <h3 class="text-lg font-bold text-gray-900">
-              Resumo do pedido
+            <h3
+              class="mt-2 text-xl font-bold text-green-950"
+            >
+              Seu pedido
             </h3>
 
             <div class="mt-4">
               ${orderItems}
             </div>
 
-            <div class="mt-5 flex items-center justify-between border-t border-green-200 pt-5">
-
-              <span class="font-semibold text-gray-700">
+            <div
+              class="mt-6 flex items-center justify-between border-t border-green-200 pt-5"
+            >
+              <span
+                class="font-semibold text-gray-700"
+              >
                 Total
               </span>
 
-              <strong class="text-2xl text-green-800">
+              <strong
+                class="text-2xl font-bold text-green-900"
+              >
                 R$ ${total.toFixed(2).replace(".", ",")}
               </strong>
-
             </div>
+
+           
 
           </aside>
 
         </div>
-
       </div>
     </div>
   `;

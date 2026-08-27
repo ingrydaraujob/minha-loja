@@ -1,15 +1,30 @@
 //cabeçalho / header 
 export function Header(): string {
   return `
-    <header class="border-b border-green-100 bg-white">
+    <header class="sticky top-0 z-40 border-b border-green-100 bg-white/95 backdrop-blur">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
-        <a href="/" class="text-2xl font-bold text-green-800">
-          VERDEZA
+        <a
+          href="#inicio"
+          class="flex items-center gap-2"
+        >
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-xl">
+            🌿
+          </span>
+
+          <div>
+            <span class="block text-xl font-bold tracking-tight text-green-900">
+              VERDEZA
+            </span>
+
+            <span class="block text-xs text-green-600">
+              plantas para viver melhor
+            </span>
+          </div>
         </a>
 
-        <nav>
-          <ul class="flex items-center gap-6">
+        <nav class="hidden md:block">
+          <ul class="flex items-center gap-8">
             <li>
               <a
                 href="#inicio"
@@ -42,9 +57,9 @@ export function Header(): string {
         <button
           id="cart-button"
           type="button"
-          class="rounded-lg bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
+          class="rounded-full bg-green-800 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-green-900"
         >
-          Carrinho
+          Carrinho (0)
         </button>
 
       </div>

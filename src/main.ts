@@ -22,6 +22,7 @@ import {
   getCartItemCount,
   removeFromCart,
   updateQuantity,
+  clearCart,
 } from "./services/cartService";
 
 let products: Product[] = [];
@@ -45,27 +46,133 @@ function renderApp(): void {
 
     <main id="inicio" class="min-h-screen bg-green-50">
 
-      <section class="mx-auto max-w-7xl px-6 py-20 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-green-600">
-          VERDEZA
-        </span>
+      <section
+  class="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24"
+>
+  <div>
+    <span
+      class="inline-flex rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-700"
+    >
+      🌱 Verde para todos os espaços
+    </span>
 
-        <h1 class="mt-4 text-4xl font-bold tracking-tight text-green-900 md:text-5xl">
-          Sua casa mais verde começa aqui.
-        </h1>
+    <h1
+      class="mt-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-green-950 sm:text-5xl lg:text-6xl"
+    >
+      Sua casa mais viva,
+      <span class="text-green-700">
+        leve e natural.
+      </span>
+    </h1>
 
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-green-700">
-          Encontre plantas, vasos e acessórios para transformar
-          seus ambientes em espaços mais vivos.
-        </p>
+    <p
+      class="mt-6 max-w-xl text-lg leading-8 text-gray-600"
+    >
+      Descubra plantas selecionadas para transformar seus ambientes
+      com mais natureza, personalidade e bem-estar.
+    </p>
 
-        <a
-          href="#plantas"
-          class="mt-8 inline-block rounded-lg bg-green-700 px-6 py-3 font-semibold text-white transition hover:bg-green-800"
+    <div
+      class="mt-8 flex flex-col gap-3 sm:flex-row"
+    >
+      <a
+        href="#plantas"
+        class="rounded-full bg-green-800 px-6 py-3 text-center font-semibold text-white shadow-sm transition hover:bg-green-900"
+      >
+        Explorar plantas
+      </a>
+
+      <a
+        href="#sobre"
+        class="rounded-full border border-green-200 bg-white px-6 py-3 text-center font-semibold text-green-800 transition hover:bg-green-50"
+      >
+        Conhecer a Verdeza
+      </a>
+    </div>
+
+    <div
+      class="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-green-100 pt-6"
+    >
+      <div>
+        <strong
+          class="block text-xl font-bold text-green-900"
         >
-          Explorar plantas
-        </a>
-      </section>
+          6+
+        </strong>
+
+        <span
+          class="text-sm text-gray-500"
+        >
+          espécies
+        </span>
+      </div>
+
+      <div>
+        <strong
+          class="block text-xl font-bold text-green-900"
+        >
+          100%
+        </strong>
+
+        <span
+          class="text-sm text-gray-500"
+        >
+          catálogo online
+        </span>
+      </div>
+
+      <div>
+        <strong
+          class="block text-xl font-bold text-green-900"
+        >
+          Fácil
+        </strong>
+
+        <span
+          class="text-sm text-gray-500"
+        >
+          de escolher
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="relative"
+  >
+    <div
+      class="absolute -inset-6 -z-10 rounded-[3rem] bg-green-100"
+    ></div>
+
+    <img
+      src="/plants/Costela-de-Adão.png"
+      alt="Costela-de-Adão em destaque"
+      class="h-130 w-full rounded-[2.5rem] object-cover shadow-xl"
+    />
+
+    <div
+      class="absolute bottom-6 left-6 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur"
+    >
+      <p
+        class="text-xs font-semibold uppercase tracking-wider text-green-600"
+      >
+        Destaque da semana
+      </p>
+
+      <p
+        class="mt-1 font-bold text-gray-900"
+      >
+        Costela-de-Adão
+      </p>
+
+      <p
+        class="text-sm text-gray-500"
+      >
+        A partir de R$ 89,90
+      </p>
+    </div>
+  </div>
+</section>
 
       <section
         id="plantas"
@@ -98,9 +205,60 @@ function renderApp(): void {
           </div>
 
         </div>
-      </section>
-
+            </section>
     </main>
+
+    
+    <footer class="border-t border-green-100 bg-green-950 px-6 py-10 text-white"> //rodape 
+      <div
+        class="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between"
+      >
+
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl">
+              🌿
+            </span>
+
+            <span class="text-xl font-bold">
+              VERDEZA
+            </span>
+          </div>
+
+          <p class="mt-3 max-w-md text-sm leading-6 text-green-100">
+            E-commerce demonstrativo de plantas desenvolvido com
+            TypeScript, Vite e Tailwind CSS.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-6 text-sm text-green-100">
+          <a
+            href="#inicio"
+            class="transition hover:text-white"
+          >
+            Início
+          </a>
+
+          <a
+            href="#plantas"
+            class="transition hover:text-white"
+          >
+            Plantas
+          </a>
+
+          <span>
+            Projeto demonstrativo
+          </span>
+        </div>
+
+      </div>
+
+      <div
+        class="mx-auto mt-8 max-w-7xl border-t border-green-800 pt-6 text-sm text-green-300"
+      >
+        © 2026 Verdeza. Projeto para fins demonstrativos.
+      </div>
+    </footer>
 
     <div id="cart-container"></div>
   `;
@@ -707,17 +865,22 @@ function renderPaymentSuccess(
     </div>
   `;
 
+  //dps q o pagamento é aprov, limpa o carrinho S
   const finishButton =
     document.querySelector<HTMLButtonElement>(
       "#finish-order"
     );
 
   finishButton?.addEventListener(
-    "click",
-    () => {
-      cartContainer.innerHTML = "";
-    }
-  );
+  "click",
+  () => {
+    clearCart();
+
+    updateCartButton();
+
+    cartContainer.innerHTML = "";
+  }
+);
 }
 
 async function init(): Promise<void> {
