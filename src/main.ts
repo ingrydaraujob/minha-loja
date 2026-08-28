@@ -319,7 +319,7 @@ function setupAddToCartEvents(): void {
 
       updateCartButton();
 
-      renderCart();
+      
     });
   });
 }
