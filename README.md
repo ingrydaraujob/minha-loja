@@ -4,7 +4,7 @@ E-commerce demonstrativo de plantas desenvolvido com TypeScript, Vite e Tailwind
 
 O projeto foi criado com foco em organização de código, responsividade, experiência do usuário, acessibilidade e funcionamento de ponta a ponta.
 
-## 🔗 Projeto online
+## Projeto online
 
 Acesse a aplicação publicada:
 
@@ -16,7 +16,7 @@ https://minha-loja-snowy.vercel.app/como-fiz
 
 ---
 
-## ✨ Funcionalidades
+##  Funcionalidades
 
 - Catálogo de plantas carregado por `products.json`
 - Consumo dos produtos utilizando `fetch`
@@ -39,7 +39,7 @@ https://minha-loja-snowy.vercel.app/como-fiz
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 ### TypeScript
 
@@ -77,7 +77,7 @@ Utilizada para realizar o deploy da aplicação e disponibilizar o projeto publi
 
 ---
 
-## 📁 Estrutura do projeto
+##  Estrutura do projeto
 
 ```text
 minha-loja/
@@ -114,3 +114,7 @@ minha-loja/
 ├── vercel.json
 └── vite.config.ts
 
+
+### Organização da aplicação
+
+O projeto foi organizado buscando separar as diferentes responsabilidades da aplicação.
