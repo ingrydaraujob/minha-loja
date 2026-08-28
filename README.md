@@ -114,6 +114,8 @@ minha-loja/
 ├── vercel.json
 └── vite.config.ts
 
+---
+
 
 ### Organização da aplicação
 
