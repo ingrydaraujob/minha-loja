@@ -16,7 +16,7 @@ export function ProductFilters(): string {
           <span
             class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
           >
-            🔎
+            
           </span>
 
           <input
