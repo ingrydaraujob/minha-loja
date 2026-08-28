@@ -115,11 +115,11 @@ minha-loja/
 └── vite.config.ts
 ```
 
-### Organização da aplicação
+# Organização da aplicação
 
 O projeto foi organizado buscando separar as diferentes responsabilidades da aplicação.
 
-# components
+## components
 
 Contém os componentes responsáveis pela interface.
 
@@ -133,7 +133,7 @@ Exemplos:
 - HowIMade.ts: conteúdo da página sobre o desenvolvimento do projeto
 
 
-# services
+## services
 
 Contém regras e operações separadas da camada visual.
 
@@ -141,7 +141,7 @@ Contém regras e operações separadas da camada visual.
 - cartService.ts: regras do carrinho
 - paymentService.ts: simulação do processamento do pagamento
 
-# types
+## types
 
 Contém os tipos utilizados pelo TypeScript.
 
