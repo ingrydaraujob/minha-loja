@@ -42,7 +42,7 @@ export function ProductCard(product: Product): string {
 
           <div>
             <span
-              class="block text-xs font-medium uppercase tracking-wider text-gray-400"
+              class="block text-xs font-medium uppercase tracking-wider text-gray-600"
             >
               A partir de
             </span>

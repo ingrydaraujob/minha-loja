@@ -910,7 +910,7 @@ function renderHowIMadePage(): void {
             </span>
 
             <span
-              class="block text-xs text-green-600"
+              class="block text-xs text-green-800"
             >
               plantas para viver melhor
             </span>
