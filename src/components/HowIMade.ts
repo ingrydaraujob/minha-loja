@@ -1,3 +1,4 @@
+//visual de como foi feito o projeto
 export function HowIMade(): string {
   return `
     <section

@@ -1,3 +1,4 @@
+//visual dos produtos 
 import type { Product } from "../types/Product"; //importação do tipo Product 
 
 //função que recebe um objeto do tipo Product e retorna uma string com o HTML do card do produto

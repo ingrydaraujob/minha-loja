@@ -1,3 +1,4 @@
+//carregamento do catalogo
 import type { Product } from "../types/Product";
 
 export async function getProducts(): Promise<Product[]> {

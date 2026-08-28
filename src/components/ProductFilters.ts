@@ -1,3 +1,4 @@
+//visual dos filtros de produtos
 export function ProductFilters(): string {
   return `
     <div

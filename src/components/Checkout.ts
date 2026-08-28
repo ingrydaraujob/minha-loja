@@ -1,3 +1,4 @@
+//interface de checkout de compras 
 import type { CartItem } from "../types/CartItem";
 
 export function Checkout(

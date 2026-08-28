@@ -1,3 +1,4 @@
+//simulaçaõ do processo de pagamento 
 export type PaymentMethod =
   | "pix"
   | "card";
