@@ -155,7 +155,7 @@ function renderApp(): void {
       class="absolute bottom-6 left-6 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur"
     >
       <p
-        class="text-xs font-semibold uppercase tracking-wider text-green-600"
+        class="text-xs font-semibold uppercase tracking-wider text-green-800"
       >
         Destaque da semana
       </p>
