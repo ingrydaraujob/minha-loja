@@ -210,7 +210,7 @@ function renderApp(): void {
     </main>
 
     
-    <footer class="border-t border-green-100 bg-green-950 px-6 py-10 text-white"> //rodape 
+    <footer class="border-t border-green-100 bg-green-950 px-6 py-10 text-white"> 
       <div
         class="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between"
       >
