@@ -113,10 +113,40 @@ minha-loja/
 ├── tsconfig.json
 ├── vercel.json
 └── vite.config.ts
-
----
-
+```
 
 ### Organização da aplicação
 
 O projeto foi organizado buscando separar as diferentes responsabilidades da aplicação.
+
+# components
+
+Contém os componentes responsáveis pela interface.
+
+Exemplos:
+
+- Header.ts: cabeçalho e navegação
+- ProductCard.ts: representação visual dos produtos
+- ProductFilters.ts: busca e filtro
+- Cart.ts: interface do carrinho
+- Checkout.ts: interface de finalização da compra
+- HowIMade.ts: conteúdo da página sobre o desenvolvimento do projeto
+
+
+# services
+
+Contém regras e operações separadas da camada visual.
+
+- productService.ts: carregamento do catálogo
+- cartService.ts: regras do carrinho
+- paymentService.ts: simulação do processamento do pagamento
+
+# types
+
+Contém os tipos utilizados pelo TypeScript.
+
+- Product.ts: estrutura de um produto
+- CartItem.ts: estrutura de um item do carrinho
+- main.ts
+
+Responsável por integrar os componentes e serviços, controlar os eventos da aplicação e coordenar as renderizações.
