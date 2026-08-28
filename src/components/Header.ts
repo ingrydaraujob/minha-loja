@@ -17,7 +17,7 @@ export function Header(): string {
               VERDEZA
             </span>
 
-            <span class="block text-xs text-green-600">
+            <span class="block text-xs text-green-800">
               plantas para viver melhor
             </span>
           </div>

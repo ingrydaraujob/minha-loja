@@ -167,7 +167,7 @@ function renderApp(): void {
       </p>
 
       <p
-        class="text-sm text-gray-500"
+        class="text-sm text-gray-700"
       >
         A partir de R$ 89,90
       </p>
@@ -182,7 +182,7 @@ function renderApp(): void {
         <div class="mx-auto max-w-7xl">
 
           <div class="mb-10">
-            <span class="text-sm font-semibold uppercase tracking-widest text-green-600">
+            <span class="text-sm font-semibold uppercase tracking-widest text-green-800">
               Nossa coleção
             </span>
 
