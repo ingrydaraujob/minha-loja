@@ -236,24 +236,31 @@ function renderApp(): void {
         </div>
 
         <div class="flex flex-wrap gap-6 text-sm text-green-100">
-          <a
-            href="#inicio"
-            class="transition hover:text-white"
-          >
-            Início
-          </a>
+  <a
+    href="#inicio"
+    class="transition hover:text-white"
+  >
+    Início
+  </a>
 
-          <a
-            href="#plantas"
-            class="transition hover:text-white"
-          >
-            Plantas
-          </a>
+  <a
+    href="#plantas"
+    class="transition hover:text-white"
+  >
+    Plantas
+  </a>
 
-          <span>
-            Projeto demonstrativo
-          </span>
-        </div>
+  <a
+    href="/como-fiz"
+    class="font-semibold transition hover:text-white"
+  >
+    Como eu fiz
+  </a>
+
+  <span>
+    Projeto demonstrativo
+  </span>
+</div>
 
       </div>
 
