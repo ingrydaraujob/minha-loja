@@ -27,6 +27,7 @@ import {
   clearCart,
 } from "./services/cartService";
 
+//variavel global para armazenar os produtos carregados do catálogo
 let products: Product[] = [];
 
 const appElement =
@@ -38,6 +39,7 @@ if (!appElement) {
 
 const app = appElement;
 
+//dados da aplicação 
 function renderApp(): void {
   const productCards = products
     .map((product) => ProductCard(product))
@@ -267,7 +269,7 @@ function renderApp(): void {
 
   setupEvents();
 }
-
+//lisat de produtos carregados do catalogo
 function renderProducts(
   filteredProducts: Product[]
 ): void {
@@ -279,7 +281,7 @@ function renderProducts(
   if (!productsGrid) {
     return;
   }
-
+//filtro de produto 
   if (filteredProducts.length === 0) {
     productsGrid.innerHTML = `
       <p class="col-span-full py-10 text-center text-gray-500">
@@ -325,6 +327,7 @@ function setupAddToCartEvents(): void {
   });
 }
 
+//funçao conctaa interface as açoes 
 function setupEvents(): void {
   setupAddToCartEvents();
 
@@ -339,7 +342,7 @@ function setupEvents(): void {
     document.querySelector<HTMLSelectElement>(
       "#category-filter"
     );
-
+//funçao filtro minusculo maisculo
   function applyFilters(): void {
     const searchTerm =
       searchInput?.value.toLowerCase().trim() ?? "";
@@ -410,6 +413,7 @@ function renderCart(): void {
     return;
   }
 
+  //funçao pega dados do carrihho    
   const items = getCart();
   const total = getCartTotal();
 
@@ -911,7 +915,7 @@ function renderHowIMadePage(): void {
             </span>
 
             <span
-              class="block text-xs text-green-800"
+              class="block text-xs text-green-700"
             >
               plantas para viver melhor
             </span>
@@ -962,17 +966,18 @@ function renderHowIMadePage(): void {
         class="bg-white px-6 py-20"
       >
         <div
-          class="mx-auto max-w-4xl"
+          class="mx-auto max-w-5xl"
         >
           <div class="text-center">
+
             <span
-              class="text-sm font-semibold uppercase tracking-widest text-green-600"
+              class="text-sm font-semibold uppercase tracking-widest text-green-800"
             >
               Apresentação
             </span>
 
             <h2
-              class="mt-3 text-3xl font-bold text-green-950"
+              class="mt-3 text-3xl font-bold text-green-950 md:text-4xl"
             >
               Vídeo do projeto
             </h2>
@@ -980,32 +985,35 @@ function renderHowIMadePage(): void {
             <p
               class="mx-auto mt-4 max-w-2xl text-gray-600"
             >
-              Aqui será inserido o vídeo de apresentação da VERDEZA,
-              mostrando a loja publicada e explicando as principais
-              decisões técnicas do projeto.
+              Neste vídeo apresento o desenvolvimento da VERDEZA,
+              as tecnologias utilizadas e as principais decisões técnicas
+              tomadas durante o projeto.
             </p>
+
           </div>
 
           <div
-            class="mt-10 flex aspect-video items-center justify-center rounded-3xl border border-green-100 bg-green-50"
+            class="mt-10 overflow-hidden rounded-3xl bg-black shadow-xl ring-1 ring-green-100"
           >
-            <div class="text-center">
-              <div class="text-5xl">
-                ▶
-              </div>
-
-              <p
-                class="mt-4 font-semibold text-green-900"
-              >
-                Vídeo em breve
-              </p>
-
-              <p
-                class="mt-2 text-sm text-gray-500"
-              >
-                O vídeo será incorporado aqui antes da entrega.
-              </p>
+            <div class="aspect-video">
+              <iframe
+                class="h-full w-full"
+                src="https://www.youtube.com/embed/To82wCBchdA"
+                title="Apresentação do projeto VERDEZA"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
+          </div>
+
+          <div
+            class="mt-6 text-center"
+          >
+            <p
+              class="text-sm text-gray-600"
+            >
+              Apresentação do projeto VERDEZA · Bootcamp Minha Loja no Ar
+            </p>
           </div>
 
         </div>

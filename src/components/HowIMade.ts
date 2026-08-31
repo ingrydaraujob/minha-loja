@@ -1,4 +1,5 @@
-//visual de como foi feito o projeto
+// Visual de como foi feito o projeto
+
 export function HowIMade(): string {
   return `
     <section
@@ -9,7 +10,7 @@ export function HowIMade(): string {
 
         <div class="text-center">
           <span
-            class="text-sm font-semibold uppercase tracking-widest text-green-600"
+            class="text-sm font-semibold uppercase tracking-widest text-green-800"
           >
             Como foi construído
           </span>
@@ -142,7 +143,6 @@ export function HowIMade(): string {
           </article>
 
         </div>
-
       </div>
     </section>
   `;

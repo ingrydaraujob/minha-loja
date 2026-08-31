@@ -25,7 +25,7 @@ function saveCart(): void {
     JSON.stringify(cart)
   );
 }
-
+//procurar produto carrinho
 export function addToCart(
   product: CartItem["product"]
 ): void {
