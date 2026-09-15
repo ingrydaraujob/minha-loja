@@ -25,7 +25,7 @@ function saveCart(): void {
     JSON.stringify(cart)
   );
 }
-//procurar produto carrinho
+//add produto 
 export function addToCart(
   product: CartItem["product"]
 ): void {
@@ -53,10 +53,12 @@ export function addToCart(
   saveCart();
 }
 
+//retorna o carrinho
 export function getCart(): CartItem[] {
   return cart;
 }
 
+//remove produto
 export function removeFromCart(
   productId: number
 ): void {
@@ -67,6 +69,7 @@ export function removeFromCart(
   saveCart();
 }
 
+//altera quant 
 export function updateQuantity(
   productId: number,
   quantity: number
@@ -93,6 +96,7 @@ export function updateQuantity(
   saveCart();
 }
 
+//preço total 
 export function getCartTotal(): number {
   return cart.reduce(
     (total, item) =>

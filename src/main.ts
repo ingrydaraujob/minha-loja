@@ -27,7 +27,7 @@ import {
   clearCart,
 } from "./services/cartService";
 
-//variavel global para armazenar os produtos carregados do catálogo
+//variavel global getproducts
 let products: Product[] = [];
 
 const appElement =
@@ -311,7 +311,7 @@ function setupAddToCartEvents(): void {
     document.querySelectorAll<HTMLButtonElement>(
       ".add-to-cart"
     );
-
+    //procurar product
   addButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const productId =
@@ -334,7 +334,7 @@ function setupAddToCartEvents(): void {
   });
 }
 
-//funçao conctaa interface as açoes 
+//funçao eventos gerais da pagina
 function setupEvents(): void {
   setupAddToCartEvents();
 
@@ -394,6 +394,7 @@ function setupEvents(): void {
   });
 }
 
+//funçao atualizar botao do carrinho
 function updateCartButton(): void {
   const cartButton =
     document.querySelector<HTMLButtonElement>(
@@ -541,6 +542,7 @@ function renderCheckout(): void {
   setupCheckoutForm();
 }
 
+//pagamento
 function setupCheckoutForm(): void {
   const form =
     document.querySelector<HTMLFormElement>(
@@ -681,7 +683,7 @@ function setupCheckoutForm(): void {
     }
   );
 }
-
+//pagamento
 async function handlePayment(
   name: string,
   email: string,
@@ -1036,6 +1038,7 @@ function renderHowIMadePage(): void {
   `;
 }
 
+//rota ou get ou renderhowimadepage
 async function init(): Promise<void> {
   try {
     if (window.location.pathname === "/como-fiz") {
@@ -1043,7 +1046,7 @@ async function init(): Promise<void> {
       return;
     }
 
-    products = await getProducts();
+    products = await getProducts(); // carregar produtos do catalogo
 
     renderApp();
   } catch (error) {
